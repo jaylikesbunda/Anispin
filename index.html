@@ -21,12 +21,23 @@
                 <option value="1">Clockwise</option>
                 <option value="-1">Counter-Clockwise</option>
             </select>
-             <button id="exportBtn">Export (Placeholder)</button>
+             <button id="exportBtn">Export GIF</button>
         </div>
         <div id="canvas-container"></div>
     </div>
 
+    <div id="export-progress" class="hidden">
+        <p id="export-status">Starting Export...</p>
+        <div id="progress-bar-container">
+            <div id="progress-bar"></div>
+        </div>
+    </div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="gif.js"></script>
+    <script src="tar.js"></script>
+    <script src="CCapture.min.js"></script>
     <script src="script.js"></script>
+    <script src="export.js"></script>
 </body>
 </html> 

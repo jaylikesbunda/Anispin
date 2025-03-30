@@ -37,7 +37,15 @@ function init() {
     directionSelect.addEventListener('change', (event) => {
         direction = parseInt(event.target.value);
     });
-    exportBtn.addEventListener('click', exportAnimation);
+    exportBtn.addEventListener('click', () => {
+        // Call the function from export.js, passing necessary objects
+        if (typeof exportAnimation === 'function') {
+            exportAnimation(renderer, scene, camera);
+        } else {
+            console.error('exportAnimation function not found. Ensure export.js is loaded.');
+            alert('Export function is not available.');
+        }
+    });
 
 
     // Placeholder geometry until image is loaded
@@ -112,42 +120,6 @@ function animate() {
     if (renderer && scene && camera) { // Check if renderer, scene, and camera exist
       renderer.render(scene, camera);
     }
-}
-
-function exportAnimation() {
-    // Export functionality is complex and requires additional libraries (e.g., CCapture.js or gif.js)
-    // or server-side processing. This is a placeholder.
-    alert('Export functionality requires an external library or server-side setup. This button is a placeholder.');
-    console.log('Export button clicked. Implement export logic here.');
-     // Example using CCapture.js (requires including the library)
-    /*
-    if (typeof CCapture !== 'undefined') {
-        const capturer = new CCapture({ format: 'gif', workersPath: 'path/to/gif/workers/' }); // Adjust path
-        capturer.start();
-
-        // Render frames for a specific duration
-        let frameCount = 0;
-        const durationFrames = 120; // e.g., capture 120 frames
-
-        function captureFrame() {
-            if (frameCount < durationFrames) {
-                requestAnimationFrame(captureFrame);
-                // Update animation state if needed (already happens in main animate loop)
-                renderer.render(scene, camera);
-                capturer.capture(renderer.domElement);
-                frameCount++;
-            } else {
-                capturer.stop();
-                capturer.save();
-            }
-        }
-        captureFrame();
-
-    } else {
-        console.error('CCapture library not found.');
-         alert('Export requires CCapture.js library to be included.');
-    }
-    */
 }
 
 // Only initialize if the container exists
