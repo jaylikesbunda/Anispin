@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spinning Logo</title>
+    <title>Anispin</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="logo-container">
-        <img src="assets/anispin_logo.png" alt="Anispin Logo">
+        <img src="assets/anispin_logo.png" alt="Anispin Logo" style="display: block;">
+        
     </div>
     
     <div id="container">
@@ -22,6 +23,23 @@
                 <option value="-1">Counter-Clockwise</option>
             </select>
              <button id="exportBtn">Export GIF</button>
+
+            <div id="export-options" class="hidden">
+                <h4>Export Options</h4>
+                <label for="exportDuration">Duration (s):</label>
+                <input type="number" id="exportDuration" value="3" min="1" max="10" step="1">
+
+                <label for="exportResolution">Resolution:</label>
+                <select id="exportResolution">
+                    <option value="current">Size of Canvas</option>
+                    <option value="512">512x512</option>
+                    <option value="720">720x720</option>
+                    <option value="1080">1080x1080</option>
+                </select>
+
+                <button id="startCaptureBtn">Start Capture</button>
+                <button id="cancelExportBtn" class="secondary">Cancel</button>
+            </div>
         </div>
         <div id="canvas-container"></div>
     </div>
@@ -39,5 +57,12 @@
     <script src="CCapture.min.js"></script>
     <script src="script.js"></script>
     <script src="export.js"></script>
+
+    <footer>
+        Made by <a href="https://github.com/jaylikesbunda" target="_blank" rel="noopener noreferrer">Jay Candel</a>.
+        <br>
+        Uses <a href="https://threejs.org/" target="_blank" rel="noopener noreferrer">Three.js</a> &
+        <a href="https://github.com/spite/ccapture.js/" target="_blank" rel="noopener noreferrer">CCapture.js</a>.
+    </footer>
 </body>
 </html> 
