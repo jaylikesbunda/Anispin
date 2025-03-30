@@ -3,7 +3,6 @@
 
 ## Features
 
-- Load an image onto a 3D plane.
 - Spin the image with adjustable speed and direction.
 - Export the spinning animation as a GIF.
 - Select export duration and resolution (square options or current canvas size).
