@@ -81,10 +81,6 @@ function exportAnimation(renderer, scene, camera, mesh, speed, direction, durati
             verbose: true,
         });
 
-        capturer.on('progress', (p) => {
-             updateProgress(50 + p * 50, `Encoding Frame ${Math.round(p * durationFrames)}/${durationFrames}...`);
-        });
-
         try {
             capturer.start();
             let frameCount = 0;
@@ -100,8 +96,8 @@ function exportAnimation(renderer, scene, camera, mesh, speed, direction, durati
                     frameCount++;
                     updateProgress((frameCount / durationFrames) * 50, `Capturing Frame ${frameCount}/${durationFrames}...`);
                 } else {
-                    updateProgress(50, "Finalizing capture...");
                     capturer.stop();
+                    updateProgress(50, "Encoding GIF...");
                     capturer.save(blob => {
                         updateProgress(100, "Download starting...");
                         const url = URL.createObjectURL(blob);

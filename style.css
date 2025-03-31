@@ -1,10 +1,9 @@
 body {
     margin: 0;
-    overflow: hidden;
     background: linear-gradient(45deg, #0a0a0a, #1a1a1a);
     color: #ffffff;
     font-family: 'Inter', system-ui, sans-serif;
-    height: 100vh;
+    min-height: 100vh;
     padding: clamp(15px, 3vw, 30px);
     display: grid;
     grid-template-rows: auto 1fr;
@@ -45,7 +44,6 @@ body {
     display: grid;
     gap: 2rem;
     grid-template-columns: 300px 1fr;
-    overflow: hidden;
 }
 
 #controls {
@@ -118,6 +116,7 @@ body {
         width: 100%;
         max-width: 600px;
         margin: 0 auto;
+        box-sizing: border-box;
     }
 }
 
@@ -130,6 +129,11 @@ body {
     #controls {
         padding: 1rem;
         gap: 1rem;
+    }
+    
+    #export-progress {
+        padding: 15px 15px;
+        max-width: calc(100% - 40px);
     }
 }
 
@@ -255,17 +259,14 @@ body {
 }
 
 footer {
-    position: fixed;
-    bottom: 5px;
-    left: 50%;
-    transform: translateX(-50%);
+    position: relative;
     font-size: 0.75em;
     color: rgba(255, 255, 255, 0.5);
     text-align: center;
     width: 90%;
     max-width: 600px;
     padding: 5px;
-    z-index: 1;
+    margin: 2rem auto 0;
 }
 
 footer a {

@@ -3,7 +3,7 @@
 
 ## Features
 
-- Spin the image with adjustable speed and direction.
+- Spin an image with adjustable speed and direction.
 - Export the spinning animation as a GIF.
 - Select export duration and resolution (square options or current canvas size).
 
